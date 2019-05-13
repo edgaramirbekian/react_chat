@@ -18,9 +18,11 @@ wss.on('connection', function (ws) {
     if (!userName) {
       userName = msg;
       userColor = colors.shift();
+
       for (let i = 0; i < clients.length; i++) {
         clients[i].send(JSON.stringify({ type: 'new_user_connected', userID: ws.userID, userName }))
       }
+
       console.log(userName + ' login');
     } else {
       console.log(userName + ' say: ' + msg);
@@ -41,6 +43,11 @@ wss.on('connection', function (ws) {
     clients.splice(index, 1);
     if (userName !== false && userColor != false) {
       colors.push(userColor);
+    }
+
+    var json = JSON.stringify({ type: 'disconnected_user', userID: ws.userID });
+    for (var i = 0; i < clients.length; i++) {
+      clients[i].send(json);
     }
   });
 
