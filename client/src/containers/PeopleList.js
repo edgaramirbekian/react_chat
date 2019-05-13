@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 class PeopleList extends React.Component {
     render() {
-        console.log(this.props);
+
         return (
 
             <div className="people-list" id="people-list">
@@ -14,10 +14,10 @@ class PeopleList extends React.Component {
                 <ul className="list">
                     {this.props.people_state.map(person => {
                         return (
-                            <li className="clearfix" key={person}>
+                            <li className="clearfix" key={person.id}>
                                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />
                                 <div className="about">
-                                    <div className="name">{person}</div>
+                                    <div className="name">{person.username}</div>
                                     <div className="status">
                                         <i className="fa fa-circle online"></i> online
                                 </div>
