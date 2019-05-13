@@ -1,15 +1,11 @@
-const initialState = [
-    'Alex',
-    'Bob',
-    'Metro',
-    'Boomin',
-    'Shrimp',
-    'Lil Nigga'
-]
+import constants from "../constants/index";
 
-const peopleReducer = (state = initialState, action) => {
-    if (action.type === "ADD_NEW_USER") {
-        return state.concat('Martin' + Date.now())
+const peopleReducer = (state = [], action) => {
+    if (action.type === constants.NEW_USER_CONNECTED) {
+        return state.concat({
+            username: action.userName,
+            id: action.userID
+        })
     }
     return state
 }
