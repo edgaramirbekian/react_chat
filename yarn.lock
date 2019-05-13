@@ -250,6 +250,11 @@ json5@^1.0.1:
   dependencies:
     minimist "^1.2.0"
 
+key-mirror@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/key-mirror/-/key-mirror-1.0.1.tgz#0a132d5c8a82a3a4fcd7df732ff9510d04ab366b"
+  integrity sha1-ChMtXIqCo6T8199zL/lRDQSrNms=
+
 lcid@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-2.0.0.tgz#6ef5d2df60e52f82eb228a4c373e8d1f397253cf"
