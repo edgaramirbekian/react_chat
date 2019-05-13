@@ -1,6 +1,6 @@
 import constants from "../constants/index";
 
-const newUserConnected = (userID, userName) => {
+export const newUserConnected = (userID, userName) => {
     return {
         type: constants.NEW_USER_CONNECTED,
         userID,
@@ -8,4 +8,9 @@ const newUserConnected = (userID, userName) => {
     }
 }
 
-export default newUserConnected
+export const disconnectedUser = (userID) => {
+    return {
+        type: constants.DISCONNECTED_USER,
+        userID
+    }
+}
