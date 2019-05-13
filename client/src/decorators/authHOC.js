@@ -24,8 +24,6 @@ export default (ChildComponent) => {
             )
         }
         render() {
-            console.log(ws);
-
             return (
                 this.auth() ? <ChildComponent /> : this.noName()
             )
