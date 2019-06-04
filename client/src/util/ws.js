@@ -1,4 +1,4 @@
-import { newUserConnected, disconnectedUser } from "../actions/index";
+import { newUserConnected, disconnectedUser, receiveNewMessage } from "../actions/index";
 import Store from "../store/index"
 
 export default ((wsUrl) => {
@@ -18,6 +18,12 @@ export default ((wsUrl) => {
             case "disconnected_user":
                 dispatch(disconnectedUser(messageObj.userID))
                 break
+            case "message":
+                const { author, time, color } = messageObj.data
+                const text = msg_txt
+                dispatch(receiveNewMessage(author, text, time, color))
+                break
+
             default:
                 console.log("default case worked")
         }
@@ -36,5 +42,11 @@ export default ((wsUrl) => {
         ws.send(message)
         countReconnect = 0
     }
-    return { emit }
+
+    let msg_txt = ''
+    const handle_msg_text = (text) => {
+        msg_txt = text
+    }
+
+    return { emit, handle_msg_text }
 })('ws://localhost:4000')
