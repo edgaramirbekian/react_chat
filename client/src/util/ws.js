@@ -19,8 +19,7 @@ export default ((wsUrl) => {
                 dispatch(disconnectedUser(messageObj.userID))
                 break
             case "message":
-                const { author, time, color } = messageObj.data
-                const text = msg_txt
+                const { author, text, time, color } = messageObj.data
                 dispatch(receiveNewMessage(author, text, time, color))
                 break
 
@@ -43,10 +42,9 @@ export default ((wsUrl) => {
         countReconnect = 0
     }
 
-    let msg_txt = ''
-    const handle_msg_text = (text) => {
-        msg_txt = text
+    const send_msg = (text) => {
+        ws.send(text)
     }
 
-    return { emit, handle_msg_text }
+    return { emit, send_msg }
 })('ws://localhost:4000')
