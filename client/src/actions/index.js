@@ -14,3 +14,10 @@ export const disconnectedUser = (userID) => {
         userID
     }
 }
+
+export const receiveNewMessage = (author, text, time, color) => {
+    return {
+        type: constants.RECEIVE_NEW_MESSAGE,
+        author, text, time, color
+    }
+}
