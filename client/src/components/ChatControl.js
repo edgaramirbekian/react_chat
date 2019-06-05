@@ -13,7 +13,7 @@ export default class ChatControl extends React.Component {
     render() {
         return (
             <div className="chat-message clearfix">
-                <textarea placeholder="Type your message" rows="4" ref={this.setRef} onChange={this.handle_text_change.bind(this)}/>
+                <textarea placeholder="Type your message" rows="4" ref={this.setRef} onChange={this.handle_text_change}/>
                 <button onClick={() => this.send_callback(this.state.msg_text)}>Send</button>
             </div>
         )
